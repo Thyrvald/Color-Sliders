@@ -29,6 +29,10 @@ public class ColorSliders extends JFrame {
         colorValuePanel.add(greenValue);
         colorValuePanel.add(blueValue);
 
+        redValue.setEditable(false);
+        greenValue.setEditable(false);
+        blueValue.setEditable(false);
+        
         red.addChangeListener((e -> {
             redValue.setText(red.sliderName + ": " + ((JSlider) e.getSource()).getValue());
             panel.setBackground(new Color(((JSlider) e.getSource()).getValue(), green.getValue(), blue.getValue()));
@@ -44,7 +48,6 @@ public class ColorSliders extends JFrame {
             panel.setBackground(new Color(red.getValue(), green.getValue(), ((JSlider) e.getSource()).getValue()));
         }));
 
-        redValue.setEditable(false);
     }
 
     private class ColorSlider extends JSlider {
